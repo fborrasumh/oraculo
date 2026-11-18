@@ -501,8 +501,8 @@ const esc = s => String(s).replace(/[&<>"]/g, c => ({'&': '&amp;', '<': '&lt;', 
 function pintaFilas() {
   $('filas').innerHTML = APPS.map((a, i) => a.pronto
     ? `<div class="fila pronto" aria-disabled="true"><span class="n">${i + 1}</span><span class="sigla">${a.sigla}</span><span class="tit"><b>${a.tit}</b><span>Próximamente</span></span><span class="burbuja" aria-hidden="true"></span></div>`
-    : `<a class="fila" href="../${a.slug}/" data-slug="${a.slug}"><span class="n">${i + 1}</span><span class="sigla">${a.sigla}</span><span class="tit"><b>${a.tit}</b><span>${a.examenes} exámenes oficiales desde ${a.desde}, ${miles(a.preguntas)} preguntas</span></span><span class="burbuja" aria-hidden="true"></span></a>`).join('');
-  $('autoria').innerHTML = APPS.filter(a => !a.pronto).map(a => `<li><a href="../${a.slug}/">Oráculo${a.sigla}</a>: ${esc(a.autores)}</li>`).join('');
+    : `<a class="fila" href="../${a.slug}/" target="_blank" rel="noopener" data-slug="${a.slug}"><span class="n">${i + 1}</span><span class="sigla">${a.sigla}</span><span class="tit"><b>${a.tit}</b><span>${a.examenes} exámenes oficiales desde ${a.desde}, ${miles(a.preguntas)} preguntas</span></span><span class="burbuja" aria-hidden="true"></span></a>`).join('');
+  $('autoria').innerHTML = APPS.filter(a => !a.pronto).map(a => `<li><a href="../${a.slug}/" target="_blank" rel="noopener">Oráculo${a.sigla}</a>: ${esc(a.autores)}</li>`).join('');
 }
 
 // las cifras se leen del informe de datos de cada app (mismo sitio); si no se puede, quedan las de arriba
